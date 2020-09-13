@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  version: '1.0'
+  title: Implementation
+  description: >-
+    This API reads data from dal-api.services.iot.telia.ee server  about  heat exchanger with name SV_Kopli1 . Time is 02.09.2020  00:00
+# Added by API Auto Mocking Plugin
+servers:
+# Added by API Auto Mocking Plugin
+  
+# Added by API Auto Mocking Plugin
+# Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ArtBigbot/ArturBaglai/1.0
+  - description: SwaggerHub API Auto Mocking
+    url: https://dal-api.services.iot.telia.ee
+paths:
+  '/personal-series':
+    get:
+      responses:
+        '200':
+          description: A JSON array of exchangers
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  type: string
+        default:
+          description: Unexpected error
+
+  '/personal-series/{exchangerId}/{date}/{time}/latest':
+    get:
+      tags:
+      
+        - exchanger 
+      summary: Get exchanger by id
+      operationId: getExchanger
+      parameters:
+        - name: exchangerId
+          in: path
+          required: true
+          schema:
+            type : integer
+            format: int64
+        - name: date
+          in: path
+          required: true
+          schema:
+            type : string
+            
+        - name: time
+          in: path
+          required: true
+          schema:
+            type : string
+            
+          
+      responses: 
+        '200':
+            description: A JSON array of data
+            content:
+              application/json:
+                schema: 
+                  type: array
+                  items: 
+                    type: string
+        '401':
+            description: Authorization information is missing or invalid.
+        default:
+          description: Unexpected error
