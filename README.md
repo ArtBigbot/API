@@ -1,1 +1,1 @@
-# API
+# This API was made for reading data from dal-api.services.iot.telia.ee server about heat exchanger with name SV_Kopli1 by the time 02.09.2020 00:00. This API was made using SwaggerHub tool. The version of API is 1.0.
